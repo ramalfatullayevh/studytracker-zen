@@ -2,39 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Educational Progress Tracking - Design System
+   All colors MUST be HSL for proper theming
 */
 
 @layer base {
   :root {
+    /* Core Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 220 15% 20%;
+    
+    /* Educational Brand */
+    --brand-primary: 243 75% 59%;
+    --brand-secondary: 262 83% 58%;
+    --brand-gradient: linear-gradient(135deg, hsl(243, 75%, 59%), hsl(262, 83%, 58%));
+    
+    /* Educational Status Colors */
+    --success: 142 76% 47%;
+    --success-light: 142 76% 95%;
+    --warning: 38 92% 50%;
+    --warning-light: 38 92% 95%;
+    --error: 0 84% 60%;
+    --error-light: 0 84% 95%;
+    
+    /* Subject Accent Colors */
+    --accent-math: 198 93% 60%;
+    --accent-science: 159 64% 52%;
+    --accent-english: 280 87% 65%;
+    --accent-history: 25 95% 53%;
+    --accent-art: 320 85% 60%;
+    
+    /* Neutral Palette */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 220 15% 20%;
+    --card-hover: 220 20% 98%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --popover-foreground: 220 15% 20%;
+    
+    /* Themed Components */
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 220 15% 20%;
+    
+    --muted: 220 20% 96%;
+    --muted-foreground: 220 15% 60%;
+    
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 20% 88%;
+    --input: 220 20% 96%;
+    --ring: 243 75% 59%;
+    
+    /* Educational Specific */
+    --glass: 0 0% 100% / 0.8;
+    --shadow-soft: 0 4px 20px hsl(220 20% 80% / 0.15);
+    --shadow-card: 0 2px 12px hsl(220 20% 80% / 0.12);
 
     --radius: 0.5rem;
 
@@ -100,6 +129,56 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Educational Cards */
+  .card-educational {
+    @apply bg-card border border-border rounded-xl shadow-[var(--shadow-card)] transition-all duration-300 hover:shadow-[var(--shadow-soft)] hover:bg-card-hover;
+  }
+  
+  /* Subject Cards */
+  .subject-card {
+    @apply card-educational p-6 cursor-pointer hover:scale-[1.02] active:scale-[0.98];
+  }
+  
+  .subject-card.math {
+    @apply border-l-4 border-l-[hsl(var(--accent-math))] bg-gradient-to-br from-[hsl(var(--accent-math)/0.05)] to-transparent;
+  }
+  
+  .subject-card.science {
+    @apply border-l-4 border-l-[hsl(var(--accent-science))] bg-gradient-to-br from-[hsl(var(--accent-science)/0.05)] to-transparent;
+  }
+  
+  .subject-card.english {
+    @apply border-l-4 border-l-[hsl(var(--accent-english))] bg-gradient-to-br from-[hsl(var(--accent-english)/0.05)] to-transparent;
+  }
+  
+  .subject-card.history {
+    @apply border-l-4 border-l-[hsl(var(--accent-history))] bg-gradient-to-br from-[hsl(var(--accent-history)/0.05)] to-transparent;
+  }
+  
+  .subject-card.art {
+    @apply border-l-4 border-l-[hsl(var(--accent-art))] bg-gradient-to-br from-[hsl(var(--accent-art)/0.05)] to-transparent;
+  }
+  
+  /* Progress Cards */
+  .progress-card {
+    @apply card-educational p-4 flex flex-col space-y-3;
+  }
+  
+  /* Animated Elements */
+  .fade-in {
+    @apply animate-in fade-in-0 duration-500;
+  }
+  
+  .slide-up {
+    @apply animate-in slide-in-from-bottom-4 duration-500;
+  }
+  
+  .scale-in {
+    @apply animate-in zoom-in-95 duration-300;
   }
 }

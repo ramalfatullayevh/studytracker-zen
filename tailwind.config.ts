@@ -19,6 +19,26 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        
+        /* Educational Brand Colors */
+        "brand-primary": "hsl(var(--brand-primary))",
+        "brand-secondary": "hsl(var(--brand-secondary))",
+        
+        /* Educational Status */
+        success: "hsl(var(--success))",
+        "success-light": "hsl(var(--success-light))",
+        warning: "hsl(var(--warning))",
+        "warning-light": "hsl(var(--warning-light))",
+        error: "hsl(var(--error))",
+        "error-light": "hsl(var(--error-light))",
+        
+        /* Subject Accents */
+        "accent-math": "hsl(var(--accent-math))",
+        "accent-science": "hsl(var(--accent-science))",
+        "accent-english": "hsl(var(--accent-english))",
+        "accent-history": "hsl(var(--accent-history))",
+        "accent-art": "hsl(var(--accent-art))",
+        
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -46,6 +66,7 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+          hover: "hsl(var(--card-hover))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
